@@ -1,6 +1,15 @@
 var weatherAPi = "2d834a88ffafb9ee1c2d2f284b506590";
 var currentCity = "";
 var lastCity = "";
+var cityList = [];
+// Function for getting the current date
+var getDate = () => {
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var year = date.getFullYear();
+    return month + "/" + day + "/" + year;
+}
 
 // Function for error handling
 var handleError = (response) => {
