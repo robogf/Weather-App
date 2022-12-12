@@ -46,41 +46,41 @@ function getCurrentCondition(city) {
 }
 
 // function for future forecast
-function futureForecast(lat,lon) {
-    var futurequeryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`;
-    $.ajax({
-        url: futurequeryURL,
-        method: "GET"
-    }).then(function (forecastResponse) {
-        console.log(forecastResponse);
-        $("#fiveForecast").empty();
-        for (var i = 1; i < 6; i++) {
-            var cityInfo = {
-                date: forecastResponse.daily[i].dt,
-                temp: forecastResponse.daily[i].temp.day,
-                humidity: forecastResponse.daily[i].humidity
+// function futureForecast(lat,lon) {
+//     var futurequeryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`;
+//     $.ajax({
+//         url: futurequeryURL,
+//         method: "GET"
+//     }).then(function (forecastResponse) {
+//         console.log(forecastResponse);
+//         $("#fiveForecast").empty();
+//         for (var i = 1; i < 6; i++) {
+//             var cityInfo = {
+//                 date: forecastResponse.daily[i].dt,
+//                 temp: forecastResponse.daily[i].temp.day,
+//                 humidity: forecastResponse.daily[i].humidity
                 
-            }
-            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+//             }
+//             var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+//             var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
 
-            var forecastCity =  $(`
-            <div class="pl-3">
-                <div class="card pl-3 pt-3 mb-3 bg-dark text-light" style="width: 12rem;>
-                    <div class="card-body">
-                        <h5>${currDate}</h5>
-                        <p>${iconURL}</p>
-                        <p>Temp: ${cityInfo.temp} °F</p>
-                        <p>Humidity: ${cityInfo.humidity}\%</p>
-                    </div>
-                </div>
-            <div>
-        `);
-            $("#fiveForecast").append(forecastCity);
-        }
-    });
+//             var forecastCity =  $(`
+//             <div class="pl-3">
+//                 <div class="card pl-3 pt-3 mb-3 bg-dark text-light" style="width: 12rem;>
+//                     <div class="card-body">
+//                         <h5>${currDate}</h5>
+//                         <p>${iconURL}</p>
+//                         <p>Temp: ${cityInfo.temp} °F</p>
+//                         <p>Humidity: ${cityInfo.humidity}\%</p>
+//                     </div>
+//                 </div>
+//             <div>
+//         `);
+//             $("#fiveForecast").append(forecastCity);
+//         }
+//     });
     
-}
+// }
 // add on click event listener for search button
 $("#search-button").on("click", function (event) {
     event.preventDefault();
