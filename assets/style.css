@@ -17,3 +17,10 @@ border-radius: var(--border-radius);
     padding: 3% 4%;
 
 }
+#weatherDisplay {
+    display: none;
+}
+
+#fiveForecast .card {
+    border: 1px solid var(--dark);
+}
